@@ -11,6 +11,6 @@ export function setToken (use) {
   return localStorage.setItem(USE_TOKEN, JSON.stringify(use))
 }
 // 移除用户信息
-export function remove () {
+export function removeToken () {
   return localStorage.removeItem(USE_TOKEN)
 }
