@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+// 覆盖vant样式
+import './style/index.less'
 import 'amfe-flexible'
 
 Vue.config.productionTip = false

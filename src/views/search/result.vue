@@ -1,9 +1,10 @@
 <template>
-  <div>问答组件</div>
+  <div>搜索结果</div>
 </template>
 
 <script>
 export default {
+  name: 'result'
 }
 </script>
 

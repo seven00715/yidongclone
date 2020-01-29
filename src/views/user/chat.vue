@@ -1,9 +1,10 @@
 <template>
-  <div>问答组件</div>
+  <div>小智同学组件</div>
 </template>
 
 <script>
 export default {
+  name: 'chat'
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>问答组件</div>
+  <div>编辑资料组件</div>
 </template>
 
 <script>
