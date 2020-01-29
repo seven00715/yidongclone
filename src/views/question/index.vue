@@ -1,5 +1,12 @@
 <template>
-  <div>问答组件</div>
+  <div class="container">
+    <p></p>
+    <van-skeleton title  :row="3" />
+    <p ></p>
+    <van-skeleton title  :row="3" />
+    <p></p>
+    <van-skeleton title  :row="3" />
+  </div>
 </template>
 
 <script>
@@ -8,4 +15,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
+p {
+  height: 30px;
+}
 </style>
