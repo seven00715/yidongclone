@@ -9,7 +9,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 // 遮罩数据的地方 初始化的时候直接将用户信息给我们 的公共状态
   state: {
-    user: auth.getToken
+    user: auth.getToken()
   },
   // state  数据的更改必须通过mutations
   mutations: {
