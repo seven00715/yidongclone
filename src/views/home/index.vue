@@ -4,13 +4,7 @@
       <van-tab v-for="index in 8" :key="index" :title="'标签 ' + index">
         <!--  这里坐了一个滚动条目的是为了后面的 阅读记忆 留下伏笔 -->
         <!-- 阅读记忆 看文章看到一半滑到中部  跳转到了别的页面 当你回来时 文章还在你看的位置  -->
-        <div class="scroll-wrapper">
-          <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-          <van-list v-model="loading" :finished="finished" finished-text="没有更多了" @load="onLoad">
-            <van-cell v-for="item in 20" :key="item" :title="index" ></van-cell>
-          </van-list>
-        </van-pull-refresh>
-        </div>
+          <article-list></article-list>
       </van-tab>
       <span class="bar_btn">
         <van-icon name="wap-nav"></van-icon>
@@ -20,44 +14,19 @@
 </template>
 
 <script>
+import ArticleList from './components/articlelist'
 export default {
   name: 'home',
+  components: {
+    ArticleList
+  },
   data () {
     return {
-      activeIndex: 1, // 默认启动第0个标签
-      list: [],
-      loading: false,
-      finished: false,
-      refreshing: false
+      activeIndex: 1 // 默认启动第0个标签
+
     }
   },
   methods: {
-    onLoad () {
-      setTimeout(() => {
-        if (this.refreshing) {
-          this.list = []
-          this.refreshing = false
-        }
-
-        for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1)
-        }
-        this.loading = false
-
-        if (this.list.length >= 40) {
-          this.finished = true
-        }
-      }, 1000)
-    },
-    onRefresh () {
-      // 清空列表数据
-      this.finished = false
-
-      // 重新加载数据
-      // 将 loading 设置为 true，表示处于加载状态
-      this.loading = true
-      this.onLoad()
-    }
   }
 }
 </script>
