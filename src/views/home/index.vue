@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <van-tabs swipeable v-model="activeIndex">
-      <van-tab v-for="index in 8" :key="index" :title="'标签 ' + index">
+      <van-tab v-for="channel in channels" :key="channel.id" :title="channel.name">
         <!--  这里坐了一个滚动条目的是为了后面的 阅读记忆 留下伏笔 -->
         <!-- 阅读记忆 看文章看到一半滑到中部  跳转到了别的页面 当你回来时 文章还在你看的位置  -->
         <article-list></article-list>
@@ -15,6 +15,7 @@
 
 <script>
 import ArticleList from './components/articlelist'
+import { getMyChannels } from '@/api/channel'
 export default {
   name: 'home',
   components: {
@@ -22,10 +23,19 @@ export default {
   },
   data () {
     return {
-      activeIndex: 1 // 默认启动第0个标签
+      activeIndex: 1, // 默认启动第0个标签
+      channels: [] // 声明接受频道的数据
     }
   },
-  methods: {}
+  created () {
+    this.getMyChannels() // 获取频道
+  },
+  methods: {
+    async getMyChannels () {
+      let { channels } = await getMyChannels()
+      this.channels = channels // 将频道赋值给声明的变量
+    }
+  }
 }
 </script>
 
