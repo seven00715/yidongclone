@@ -4,7 +4,7 @@
       <van-tab v-for="index in 8" :key="index" :title="'标签 ' + index">
         <!--  这里坐了一个滚动条目的是为了后面的 阅读记忆 留下伏笔 -->
         <!-- 阅读记忆 看文章看到一半滑到中部  跳转到了别的页面 当你回来时 文章还在你看的位置  -->
-          <article-list></article-list>
+        <article-list></article-list>
       </van-tab>
       <span class="bar_btn">
         <van-icon name="wap-nav"></van-icon>
@@ -23,11 +23,9 @@ export default {
   data () {
     return {
       activeIndex: 1 // 默认启动第0个标签
-
     }
   },
-  methods: {
-  }
+  methods: {}
 }
 </script>
 
@@ -47,13 +45,13 @@ export default {
       height: 2px;
     }
   }
-  /deep/ .van-tabs__content{
+  /deep/ .van-tabs__content {
     flex: 1;
     overflow: hidden;
   }
-  /deep/ .van-tab__pane{
+  /deep/ .van-tab__pane {
     height: 100%;
-    .scroll-wrapper{
+    .scroll-wrapper {
       height: 100%;
       overflow-y: auto;
     }
