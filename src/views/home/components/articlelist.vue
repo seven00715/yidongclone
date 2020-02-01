@@ -33,14 +33,21 @@
 <script>
 export default {
   name: 'article-list',
-
+  props: {
+    channel_id: {
+      type: Number, // 指定要传的props类型
+      required: true, // 要求props必须传
+      default: null // 给props一个默认值
+    }
+  },
   data () {
     return {
       articles: [], // 定义一个数组来接收上拉加载的数据
       upLoading: false, // 是否开启上拉加载
       finished: false, // 是否数据已经全部加载完毕
       downLoading: false, // 是否开启下拉加载
-      refreshSuccessText: '' // 下拉成功显示的文本
+      refreshSuccessText: '', // 下拉成功显示的文本
+      timestamp: null // 定义一个时间戳
     }
   },
   methods: {
